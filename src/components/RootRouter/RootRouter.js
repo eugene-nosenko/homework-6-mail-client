@@ -6,6 +6,8 @@ import AppRouter from '../AppRouter';
 import { AuthProvider } from '../../context/Auth';
 import { DataProvider } from '../../context/Data';
 
+import Home from '../Home/Home';
+
 // Мы оборачиваем наши роуты в несколько провайдеров
 // DataProvider - предоставляет обьект data с имейлами.
 // AuthProvider - предоставляет метод авторизации authorize
@@ -28,6 +30,10 @@ export default () => (
             /app будет использовать AppRouter в качестве вью
             /login будет использовать LoginForm
           */}
+          <Route path="/" component={Home} exact />
+          <Route path="/app" component={AppRouter} />
+          <Route path="/login" component={LoginForm} />
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </AuthProvider>
